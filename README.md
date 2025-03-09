@@ -22,6 +22,8 @@ Start a dev server:
 $ deno task dev
 ```
 
+It'll usually run at [localhost:5173](http://localhost:5173)
+
 ## Logging into the reddit API using the interface
 Once you load the app, you'll be greeted by a screen with a button labeled "Search". Click it and it'll prompt you to login:
 ![image](https://github.com/user-attachments/assets/1f89332a-812c-4875-879e-d338beabfc60)
