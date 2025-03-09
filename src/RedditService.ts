@@ -25,9 +25,10 @@ export class SoulFrameService {
       this.GetCommentsContainingKeys()
         .then((response) => {
           const regex = /\b([0-9A-Fa-f]{4}\b.*){2}/;
-          let commentsContainingKeys = ((((response as any)[1].data.children as any[]).flatMap(({ data: { body_html, created_utc } }: any) => ({ body_html, created_utc })) as any[]).filter((item) => regex.test(item.body_html)))
+          let commentsContainingKeys = ((((response as any)[1].data.children as any[]).flatMap(({ data: { body, body_html, created_utc } }: any) => ({ body, body_html, created_utc })) as any[]).filter((item) => regex.test(item.body)))
             .flatMap((comment) => ({
-              key: decodeURIComponent(comment.body_html),
+              body_html: decodeURIComponent(comment.body_html),
+              body: comment.body,
               posted: moment(new Date(comment.created_utc * 1000).toISOString()).fromNow(),
             }));
           if (lastDayFilter) commentsContainingKeys = commentsContainingKeys

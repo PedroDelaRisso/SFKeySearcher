@@ -28,9 +28,8 @@ function App() {
       });
   }
 
-  const copyToClipboard = (key: string) => {
-    const keyAux = decodeHTMLEntities(key);
-    navigator.clipboard.writeText(keyAux)
+  const copyToClipboard = (comment: string) => {
+    navigator.clipboard.writeText(comment)
       .catch(err => console.error('Error copying to clipboard:', err));
   }
 
@@ -71,16 +70,16 @@ function App() {
                   <>
                     <ul className="flex-column justify-around">
                       {
-                        keys.map(({key, posted}) => (
+                        keys.map(({body, body_html, posted}) => (
                           <li className="py-2 border-b-2 border-[#2e2e2e]">
-                            <p dangerouslySetInnerHTML={{__html: decodeHTMLEntities(key)}} className="mr-2 font-black font-mono text-left">
+                            <p dangerouslySetInnerHTML={{__html: decodeHTMLEntities(body_html)}} className="mr-2 font-black font-mono text-left">
                             </p>
                             <span>
                               <i>
                                 { posted }
                               </i>
                             </span>
-                            <button className="ml-2" onClick={() => copyToClipboard(key)}>Copy</button>
+                            <button className="ml-2" onClick={() => copyToClipboard(body)}>Copy</button>
                           </li>
                         ))
                       }
@@ -124,7 +123,7 @@ function App() {
                     <label>Secret:&nbsp;</label>
                     <input className="w-full mb-2 bg-[#2e2e2e]" type="password" value={secret} onChange={(e) => setSecret(e.target.value)} />
                     <br />
-                    <button onClick={() => service.ApiLogin(clientId, secret, username, password).then(() => { setAuthErrorOccured(false); getAndSetKeys(); })}>Login</button>
+                    <button className="mb-10" onClick={() => service.ApiLogin(clientId, secret, username, password).then(() => { setAuthErrorOccured(false); getAndSetKeys(); })}>Login</button>
                   </div>
                   <br />
                 </>

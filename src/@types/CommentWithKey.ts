@@ -1,4 +1,5 @@
 export type CommentWithKey = {
-    key: string,
+    body_html: string,
+    body: string,
     posted: string,
 };
