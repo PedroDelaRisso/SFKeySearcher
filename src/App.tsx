@@ -31,7 +31,6 @@ function App() {
   const copyToClipboard = (key: string) => {
     const keyAux = decodeHTMLEntities(key);
     navigator.clipboard.writeText(keyAux)
-      .then(() => console.log('Copied to clipboard'))
       .catch(err => console.error('Error copying to clipboard:', err));
   }
 

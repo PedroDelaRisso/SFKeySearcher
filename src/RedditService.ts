@@ -25,7 +25,6 @@ export class SoulFrameService {
       this.GetCommentsContainingKeys()
         .then((response) => {
           const regex = /\b([0-9A-Fa-f]{4}\b.*){2}/;
-          console.log(response);
           let commentsContainingKeys = ((((response as any)[1].data.children as any[]).flatMap(({ data: { body_html, created_utc } }: any) => ({ body_html, created_utc })) as any[]).filter((item) => regex.test(item.body_html)))
             .flatMap((comment) => ({
               key: decodeURIComponent(comment.body_html),
