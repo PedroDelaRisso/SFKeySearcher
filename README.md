@@ -1,3 +1,6 @@
+#SFKeySearcher
+SoulFrame key searcher.
+
 # Vite + Deno + React + TypeScript
 
 ## Running
