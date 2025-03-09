@@ -5,7 +5,7 @@ A quick project done using Vite, Deno, TypeScript, Axios, React and Tailwindcsss
 
 ### Running
 
-You need to have Deno v2.0.0 or later installed to run this repo.
+You need to have [Deno](https://deno.com) v2.0.0 or later installed to run this repo.
 
 Start a dev server:
 
