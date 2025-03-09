@@ -1,7 +1,7 @@
 # SFKeySearcher
 SoulFrame key searcher.
 
-## Vite + Deno + React + TypeScript
+A quick project done using Vite, Deno, TypeScript, Axios, React and Tailwindcsss. This app consumes the reddit API to search for comments on the subreddit r/SoulFrame code sharing megathread and prints them on screen if they contain SoulFrame keys.
 
 ### Running
 
