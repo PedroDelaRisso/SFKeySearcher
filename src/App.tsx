@@ -45,21 +45,27 @@ function App() {
         <div>
           <h1 className="mb-2">SFKeySearcher <span className="align-super text-sm">v1.5</span></h1>
           <p>SoulFrame Key Searcher</p>
-          <p className="mt-4">It looks for recent comments on the <a href="https://www.reddit.com/r/SoulFrame/comments/1ih1iit/code_sharing_megathread_2/?sort=new" target="_blank" rel="noopener noreferrer">code sharing megathread</a> containing keys.</p>
-          <p className="mt-4">
-            Redeem your key or register <a href="https://www.soulframe.com/en/promocodes" target="_blank">here</a>!
-          </p>
-          <input className="mr-2" type="checkbox" name="lastDayFilter" id="lastDayFilter" defaultChecked={lastDayFilter} onChange={() => setLastDayFilter(!lastDayFilter)} />
-          <label htmlFor="lastDayFilter">Only show comments posted in the last 24 hours</label>
           <div className="mb-4">
             </div>
             {
               !authErrorOccurred
                 ? (
                   <div>
-                    <button onClick={() => getAndSetKeys()}>
-                      Search
-                    </button>
+                    <div>
+                      <p className="mt-4">It looks for recent comments on the <a href="https://www.reddit.com/r/SoulFrame/comments/1ih1iit/code_sharing_megathread_2/?sort=new" target="_blank" rel="noopener noreferrer">code sharing megathread</a> containing keys.</p>
+                      <p className="mt-4">
+                        Redeem your key or register <a href="https://www.soulframe.com/en/promocodes" target="_blank">here</a>!
+                      </p>
+                    </div>
+                    <div className="my-4">
+                      <input className="mr-3" type="checkbox" name="lastDayFilter" id="lastDayFilter" defaultChecked={lastDayFilter} onChange={() => setLastDayFilter(!lastDayFilter)} />
+                      <label htmlFor="lastDayFilter">Only show comments posted in the last 24 hours</label>
+                    </div>
+                    <div>
+                      <button onClick={() => getAndSetKeys()}>
+                        Search
+                      </button>
+                    </div>
                   </div>
                 )
                 : ''
